@@ -28,7 +28,7 @@ public class SplashScreen extends ScreenAdapter {
 
     public void render (float delta) {
 
-        if (System.currentTimeMillis() - startTime >= 4000){
+        if (System.currentTimeMillis() - startTime >= 1000){
             mod.setScreen(new GameScreen(mod));
         } else {
             Gdx.gl.glClearColor(1, 0, 0, 1);

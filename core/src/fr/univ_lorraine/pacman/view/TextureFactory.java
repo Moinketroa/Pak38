@@ -14,8 +14,8 @@ public class TextureFactory {
         return instance;
     }
 
-    private Texture block = new Texture(Gdx.files.internal("images/block.png"));
-    private Texture pacmanLeft = new Texture(Gdx.files.internal("images/block.png"));
+    private Texture block = new Texture("image/bloc.png");
+    private Texture pacmanLeft = new Texture("image/pacmanLeft.png");
 
     public Texture getTextureBlock(){
         return block;
