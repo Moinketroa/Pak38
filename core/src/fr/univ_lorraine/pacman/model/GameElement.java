@@ -34,8 +34,12 @@ public abstract class GameElement {
         return position;
     }
 
+    public void setPosition(float x, float y){
+        position.set(x, y);
+    }
+
     public void draw(SpriteBatch spb, int sizex, int sizey){
-        spb.draw(getTexture(), position.y * sizey, position.x * sizex, getHeight() * sizey, getWidth() * sizex);
+        spb.draw(this.getTexture(), position.x * sizex, position.y * sizey, getWidth() * sizex, getHeight() * sizey);
     }
 
     public abstract Texture getTexture();

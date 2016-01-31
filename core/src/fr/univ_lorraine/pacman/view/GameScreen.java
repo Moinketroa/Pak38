@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
 import fr.univ_lorraine.pacman.Pak38;
+import fr.univ_lorraine.pacman.controller.GameListener;
 import fr.univ_lorraine.pacman.model.GameElement;
 import fr.univ_lorraine.pacman.model.World;
 
@@ -32,12 +33,19 @@ public class GameScreen extends ScreenAdapter {
 
     public GameScreen(Pak38 pc){
         mod = pc;
+
         fpsl = new FPSLogger();
         batch = new SpriteBatch();
         wrld = new World();
-        cam = new OrthographicCamera(128, 128);
-        fvp = new FitViewport(wrld.getWidth() * ppux, wrld.getHeight() * ppuy, cam);
-        cam.position.set(128, 128, 0);
+        Gdx.input.setInputProcessor(new GameListener(wrld.getPak38()));
+
+        cam = new OrthographicCamera();
+        fvp = new FitViewport(wrld.getWidth() * ppux,
+                              wrld.getHeight() * ppuy,
+                              cam);
+        cam.position.set(wrld.getWidth() * ppux / 2F,
+                         wrld.getHeight() * ppuy / 2F,
+                         0);
         cam.update();
     }
 
@@ -49,8 +57,6 @@ public class GameScreen extends ScreenAdapter {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
 
-        int size = 15;
-
         for (int lig = 0; lig < wrld.getHeight(); lig++){
             for (int col = 0; col < wrld.getWidth(); col++){
 
@@ -58,10 +64,17 @@ public class GameScreen extends ScreenAdapter {
 
                 if (currentGE != null)
                     currentGE.draw(batch, ppux, ppuy);
+                    //batch.draw(currentGE.getTexture(),col*ppux,lig*ppuy, currentGE.getWidth()*ppux, currentGE.getHeight()*ppuy);
 
             }
         }
 
+        for (int i = 0; i < 4; i++){
+            wrld.getGhost(i).update(delta);
+            wrld.getGhost(i).draw(batch, ppux, ppuy);
+        }
+
+        wrld.getPak38().update(delta);
         wrld.getPak38().draw(batch, ppux, ppuy);
 
         batch.end();
