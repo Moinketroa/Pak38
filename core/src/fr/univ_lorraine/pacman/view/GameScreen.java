@@ -62,8 +62,10 @@ public class GameScreen extends ScreenAdapter {
 
                 GameElement currentGE = wrld.getGE(lig, col);
 
-                if (currentGE != null)
+                if (currentGE != null) {
                     currentGE.draw(batch, ppux, ppuy);
+                    wrld.getPak38().manageCollision(currentGE);
+                }
                     //batch.draw(currentGE.getTexture(),col*ppux,lig*ppuy, currentGE.getWidth()*ppux, currentGE.getHeight()*ppuy);
 
             }
@@ -72,6 +74,7 @@ public class GameScreen extends ScreenAdapter {
         for (int i = 0; i < 4; i++){
             wrld.getGhost(i).update(delta);
             wrld.getGhost(i).draw(batch, ppux, ppuy);
+            wrld.getPak38().manageCollision(wrld.getGhost(i));
         }
 
         wrld.getPak38().update(delta);

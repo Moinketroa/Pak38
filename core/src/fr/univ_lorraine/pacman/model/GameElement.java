@@ -4,6 +4,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
+import java.util.logging.Logger;
+
 /**
  * Created by debicki3u on 22/01/16.
  */
@@ -13,6 +15,8 @@ public abstract class GameElement {
     private int width;
     private int height;
 
+    protected World w;
+
     int ppux = 48;
     int ppuy = 48;
 
@@ -20,6 +24,8 @@ public abstract class GameElement {
         position = pos;
         width = 1;
         height = 1;
+
+        w = monde;
     }
 
     public int getWidth(){
@@ -43,4 +49,10 @@ public abstract class GameElement {
     }
 
     public abstract Texture getTexture();
+
+    public abstract BoundingBox getBoundingBox();
+
+    public boolean hasCollision(GameElement ge){
+        return this.getBoundingBox().overlaps(ge.getBoundingBox());
+    }
 }

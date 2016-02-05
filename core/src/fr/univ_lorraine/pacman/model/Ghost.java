@@ -3,6 +3,7 @@ package fr.univ_lorraine.pacman.model;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 
+import fr.univ_lorraine.pacman.view.BoundingBoxFactory;
 import fr.univ_lorraine.pacman.view.TextureFactory;
 
 /**
@@ -19,6 +20,7 @@ public class Ghost extends GameMoveableElement {
 
         isMoving = false;
         dir = Direction.LEFT;
+        sto = State.HUNTING;
         speed = (float) .0012;
     }
 
@@ -26,4 +28,8 @@ public class Ghost extends GameMoveableElement {
     public Texture getTexture() {
         return TextureFactory.getInstance().getTextureGhost(num);
     }
+
+    @Override
+    public BoundingBox getBoundingBox() { return BoundingBoxFactory.getInstance().getBBGhost(getPosition()); }
+
 }

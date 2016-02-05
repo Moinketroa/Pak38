@@ -45,6 +45,7 @@ public abstract class GameMoveableElement extends GameElement {
     }
 
     public void update(float delta){
+
         if (this.isMoving){
             float deplacement = speed * delta;
 
@@ -67,4 +68,5 @@ public abstract class GameMoveableElement extends GameElement {
             }
         }
     }
+
 }

@@ -99,4 +99,8 @@ public class World {
     public Ghost getGhost(int whichOne){
         return ghostbastards[whichOne];
     }
+
+    public void destroy(GameElement ge){
+        geTab[(int)ge.getPosition().x][(int)ge.getPosition().y] = null;
+    }
 }
