@@ -2,6 +2,7 @@ package fr.univ_lorraine.pacman.view;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.graphics.GL20;
@@ -28,6 +29,7 @@ public class GameScreen extends ScreenAdapter {
     World wrld;
     FitViewport fvp;
     OrthographicCamera cam;
+    Music m;
 
     int ppux = 48;
     int ppuy = 48;
@@ -39,6 +41,9 @@ public class GameScreen extends ScreenAdapter {
         batch = new SpriteBatch();
         wrld = new World();
         Gdx.input.setInputProcessor(new GameListener(wrld.getPak38()));
+        m = Gdx.audio.newMusic(Gdx.files.internal("son/circus.mp3"));
+        m.setLooping(true);
+        m.play();
 
         cam = new OrthographicCamera();
         fvp = new FitViewport(wrld.getWidth() * ppux,
@@ -52,7 +57,6 @@ public class GameScreen extends ScreenAdapter {
 
     public void render (float delta) {
         fpsl.log();
-        System.out.println(wrld.getScore());
         cam.update();
         batch.setProjectionMatrix(cam.combined);
         Gdx.gl.glClearColor(0, 0, 0, 0);

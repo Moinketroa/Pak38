@@ -4,6 +4,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 
 import fr.univ_lorraine.pacman.model.Pacman;
+import fr.univ_lorraine.pacman.model.State;
 
 /**
  * Created by J-M on 31/01/2016.
@@ -18,19 +19,22 @@ public class GameListener implements InputProcessor{
 
     @Override
     public boolean keyDown(int keycode) {
-        switch (keycode){
-            case Input.Keys.LEFT:
-                pak.turnLeft();
-                break;
-            case Input.Keys.RIGHT:
-                pak.turnRight();
-                break;
-            case Input.Keys.DOWN:
-                pak.turnDown();
-                break;
-            case Input.Keys.UP:
-                pak.turnUp();
-                break;
+
+        if (pak.getState() != State.DEAD) {
+            switch (keycode) {
+                case Input.Keys.LEFT:
+                    pak.turnLeft();
+                    break;
+                case Input.Keys.RIGHT:
+                    pak.turnRight();
+                    break;
+                case Input.Keys.DOWN:
+                    pak.turnDown();
+                    break;
+                case Input.Keys.UP:
+                    pak.turnUp();
+                    break;
+            }
         }
 
         return false;

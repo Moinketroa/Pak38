@@ -1,5 +1,7 @@
 package fr.univ_lorraine.pacman.model;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -17,12 +19,16 @@ public class Pacman extends GameMoveableElement {
 
     private float timeofSuper;
 
+    protected Sound beep;
+
     public Pacman(Vector2 pos, World w){
         super(pos, w);
 
         timeofSuper = 0;
 
-        isMoving = true;
+        beep = Gdx.audio.newSound(Gdx.files.internal("son/beep.wav"));
+
+        isMoving = false;
         dir = Direction.LEFT;
         sto = State.HAUNTED;
         speed = (float) .0012;
@@ -49,9 +55,11 @@ public class Pacman extends GameMoveableElement {
             } else if (s.equals("Pellet")) {
                 w.destroy(ge);
                 w.incrScore(10);
+                beep.play();
             } else if (s.equals("SuperPellet")) {
                 w.destroy(ge);
                 w.incrScore(50);
+                beep.play();
                 this.sto = State.HUNTING;
                 this.setTimeofSuper(TIME_OF_SUPER_PELLET);
                 w.setGhostsState(State.HAUNTED);
@@ -82,7 +90,8 @@ public class Pacman extends GameMoveableElement {
                     }
                     break;
                 case HUNTING:
-                    setState(State.DEAD);
+                    this.setState(State.DEAD);
+                    System.out.println("SCORE : " + w.getScore());
                     break;
                 case DEAD:
                     break;
