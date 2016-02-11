@@ -1,6 +1,7 @@
 package fr.univ_lorraine.pacman.model;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 
 import fr.univ_lorraine.pacman.view.BoundingBoxFactory;
@@ -25,8 +26,8 @@ public class Ghost extends GameMoveableElement {
     }
 
     @Override
-    public Texture getTexture() {
-        return TextureFactory.getInstance().getTextureGhost(num);
+    public TextureRegion getTexture() {
+        return TextureFactory.getInstance().getTextureGhost(num, this);
     }
 
     @Override

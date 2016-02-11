@@ -2,6 +2,7 @@ package fr.univ_lorraine.pacman.model;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 
 import java.util.logging.Logger;
@@ -44,11 +45,27 @@ public abstract class GameElement {
         position.set(x, y);
     }
 
+    public float getX(){
+        return position.x;
+    }
+
+    public float getY(){
+        return position.y;
+    }
+
+    public void setX(float x){
+        position.x = x;
+    }
+
+    public void setY(float y){
+        position.y = y;
+    }
+
     public void draw(SpriteBatch spb, int sizex, int sizey){
         spb.draw(this.getTexture(), position.x * sizex, position.y * sizey, getWidth() * sizex, getHeight() * sizey);
     }
 
-    public abstract Texture getTexture();
+    public abstract TextureRegion getTexture();
 
     public abstract BoundingBox getBoundingBox();
 

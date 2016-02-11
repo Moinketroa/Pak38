@@ -14,9 +14,12 @@ public abstract class GameMoveableElement extends GameElement {
     protected Direction dir;
     protected State sto;
 
+    protected float stateTime;
+
     public GameMoveableElement(Vector2 pos, World monde){
         super(pos, monde);
 
+        stateTime = 0;
         isMoving = false;
     }
 
@@ -44,7 +47,25 @@ public abstract class GameMoveableElement extends GameElement {
         dir = Direction.RIGHT;
     }
 
+    public void setState(State s){
+        this.sto = s;
+    }
+
+    public float getStateTime(){
+        return stateTime;
+    }
+
+    public State getState(){
+        return sto;
+    }
+
+    public Direction getDir(){
+        return dir;
+    }
+
     public void update(float delta){
+
+        stateTime += delta;
 
         if (this.isMoving){
             float deplacement = speed * delta;

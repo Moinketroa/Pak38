@@ -17,7 +17,7 @@ public class BoundingBoxFactory {
 
 
     public BoundingBox getBBBlock(Vector2 v){
-        return new BoundingBox(v.x, v.y, (float)0.90, (float)0.90);
+        return new BoundingBox(v.x, v.y, (float)0.80, (float)0.80);
     }
 
     public BoundingBox getBBGhost(Vector2 v){
@@ -25,7 +25,7 @@ public class BoundingBoxFactory {
     }
 
     public BoundingBox getBBPak38(Vector2 v, Direction d){
-        return new BoundingBox(v.x, v.y, (float)0.99, (float)0.99);
+        return new BoundingBox(v.x, v.y, (float)0.90, (float)0.90);
     }
 
     public BoundingBox getBBSuperPellet(Vector2 v){

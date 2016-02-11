@@ -11,11 +11,14 @@ public class World {
     private Ghost ghostbastards[];
     private GameElement[][] geTab;
 
+    private int score;
+
     private int height;
     private int width;
 
     public World() {
         pc = new Pacman(new Vector2(13, 7), this);
+        score = 0;
 
         ghostbastards = new Ghost[4];
 
@@ -84,6 +87,14 @@ public class World {
         return geTab[col][lig];
     }
 
+    public void incrScore(int inc){
+        score += inc;
+    }
+
+    public int getScore(){
+        return score;
+    }
+
     public int getHeight(){
         return height;
     }
@@ -98,6 +109,22 @@ public class World {
 
     public Ghost getGhost(int whichOne){
         return ghostbastards[whichOne];
+    }
+
+    public int nbDeadGhost(){
+        int res = 0;
+
+        for (Ghost g : ghostbastards){
+            if (g.sto == State.DEAD)
+                res++;
+        }
+
+        return res;
+    }
+
+    public void setGhostsState(State s){
+        for (Ghost g : ghostbastards)
+            g.sto = s;
     }
 
     public void destroy(GameElement ge){

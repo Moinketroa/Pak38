@@ -13,6 +13,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import fr.univ_lorraine.pacman.Pak38;
 import fr.univ_lorraine.pacman.controller.GameListener;
 import fr.univ_lorraine.pacman.model.GameElement;
+import fr.univ_lorraine.pacman.model.Ghost;
 import fr.univ_lorraine.pacman.model.World;
 
 /**
@@ -51,6 +52,7 @@ public class GameScreen extends ScreenAdapter {
 
     public void render (float delta) {
         fpsl.log();
+        System.out.println(wrld.getScore());
         cam.update();
         batch.setProjectionMatrix(cam.combined);
         Gdx.gl.glClearColor(0, 0, 0, 0);
@@ -74,7 +76,7 @@ public class GameScreen extends ScreenAdapter {
         for (int i = 0; i < 4; i++){
             wrld.getGhost(i).update(delta);
             wrld.getGhost(i).draw(batch, ppux, ppuy);
-            wrld.getPak38().manageCollision(wrld.getGhost(i));
+            wrld.getPak38().manageCollision((Ghost)wrld.getGhost(i));
         }
 
         wrld.getPak38().update(delta);

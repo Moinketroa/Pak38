@@ -1,0 +1,146 @@
+
+pack.png
+size: 256,64
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+bloc
+  rotate: false
+  xy: 2, 14
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+ghost1
+  rotate: false
+  xy: 52, 30
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+ghost2
+  rotate: false
+  xy: 70, 48
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+ghost3
+  rotate: false
+  xy: 52, 14
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+ghost4
+  rotate: false
+  xy: 86, 48
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+ghostDead
+  rotate: false
+  xy: 102, 48
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+ghostHunted
+  rotate: false
+  xy: 118, 48
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+ghostHuntedEnd
+  rotate: false
+  xy: 134, 48
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+pacman
+  rotate: false
+  xy: 150, 49
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+pacman-3
+  rotate: false
+  xy: 165, 49
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+pacmanDown
+  rotate: false
+  xy: 180, 49
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+pacmanDown-2
+  rotate: false
+  xy: 195, 49
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+pacmanLeft
+  rotate: false
+  xy: 210, 49
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+pacmanLeft-2
+  rotate: false
+  xy: 225, 49
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+pacmanRight
+  rotate: false
+  xy: 240, 49
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+pacmanRight-2
+  rotate: false
+  xy: 68, 31
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+pacmanUp
+  rotate: false
+  xy: 68, 16
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+pacmanUp-2
+  rotate: false
+  xy: 83, 33
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+pellet
+  rotate: false
+  xy: 52, 46
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+superPellet
+  rotate: false
+  xy: 68, 2
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
